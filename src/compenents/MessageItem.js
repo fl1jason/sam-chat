@@ -7,12 +7,18 @@ import { TimeFromNow } from "../util/datetime";
 
 import { IconReactions } from "../icons/icons";
 
+import { getUserColor } from "../util/user";
+
 const MessageItem = (props) => {
   const { id, from, message, time_stamp, reactions } = props.message;
 
   const [showReactions, setShowReactions] = useState(false);
 
   const timeFromNow = TimeFromNow(time_stamp);
+
+  // Pick a unique color for the user
+  const userColor = getUserColor(from);
+  console.log(userColor);
 
   // Get the Logged in User
   const [user] = useAuthState(auth);
@@ -34,51 +40,57 @@ const MessageItem = (props) => {
   };
 
   return (
-    <div
-      key={id}
-      className={`message-container${user.displayName === from ? "-me" : ""}`}
-    >
-      <div className={`message${user.displayName === from ? "-me" : ""}`}>
-        <div className="message-left">
-          <div className="message-from">{from}</div>
-          <div className="message-text">{message}</div>
+    <>
+      <div
+        key={id}
+        className={`message-container${user.displayName === from ? "-me" : ""}`}
+      >
+        <div className={`message${user.displayName === from ? "-me" : ""}`}>
+          <div className="message-left">
+            {user.displayName != from && (
+              <div className="message-from" style={{ color: userColor }}>
+                {from}
+              </div>
+            )}
+            <div className="message-text">{message}</div>
+          </div>
+          <div className="message-right">
+            <div className="message-time">{timeFromNow}</div>
+          </div>
         </div>
-        <div className="message-right">
-          <div className="message-time">{timeFromNow}</div>
+        <div
+          className="message-reaction-options"
+          onClick={() => setShowReactions(!showReactions)}
+        >
+          <IconReactions />
+        </div>
+        <div
+          className={
+            showReactions
+              ? "message-reaction-buttons show"
+              : "message-reaction-buttons"
+          }
+          onMouseLeave={() => setShowReactions(false)}
+        >
+          <button onClick={() => handleReaction("💜")}>💜</button>
+          <button onClick={() => handleReaction("🐈")}>🐈</button>
+          <button onClick={() => handleReaction("🍺")}>🍺</button>
+          <button onClick={() => handleReaction("💩")}>💩</button>
+          <button onClick={() => handleReaction("😴")}>😴</button>
         </div>
       </div>
       <div
-        className="message-reaction-options"
-        onClick={() => setShowReactions(!showReactions)}
+        className={`message-reactions${user.displayName === from ? "-me" : ""}`}
       >
-        <IconReactions />
+        {reactions &&
+          reactions.map((reaction, index) => (
+            <span key={index} className="tooltip">
+              {reaction.type}
+              <span className="tooltiptext">{reaction.user}</span>
+            </span>
+          ))}
       </div>
-      <div
-        className={
-          showReactions
-            ? "message-reaction-buttons show"
-            : "message-reaction-buttons"
-        }
-        onMouseLeave={() => setShowReactions(false)}
-      >
-        <button onClick={() => handleReaction("💜")}>💜</button>
-        <button onClick={() => handleReaction("🐈")}>🐈</button>
-        <button onClick={() => handleReaction("🍺")}>🍺</button>
-        <button onClick={() => handleReaction("💩")}>💩</button>
-        <button onClick={() => handleReaction("😴")}>😴</button>
-      </div>
-      <div>
-        <div className="message-reactions">
-          {reactions &&
-            reactions.map((reaction, index) => (
-              <span key={index} className="tooltip">
-                {reaction.type}
-                <span className="tooltiptext">{reaction.user}</span>
-              </span>
-            ))}
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 

@@ -36,7 +36,7 @@ export const Login = () => {
     }
   };
   return (
-    <div>
+    <div className="login-box">
       <button onClick={signInWithGithub}> Signin with GitHub</button>
       <button onClick={signInWithGoogle}> Signin with Google</button>
       <button onClick={logOut}> logOut</button>

@@ -72,7 +72,7 @@ const ChatRoom = () => {
   };
 
   const setDisplayMessage = (text) => {
-    toast(text);
+    //toast(text);
   };
 
   const onSubmitMessage = (form) => {
@@ -114,6 +114,7 @@ const ChatRoom = () => {
             className="message-input"
             onChange={handleInputChange}
             value={message.message}
+            placeholder="Type a message ..."
           />
 
           <button type="submit">
@@ -122,16 +123,16 @@ const ChatRoom = () => {
         </form>
       </div>
       <ToastContainer
-        position="top-left"
-        autoClose={5000}
-        hideProgressBar={false}
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={true}
         newestOnTop={false}
         closeOnClick
         rtl={false}
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="dark"
       />
       {/* Same as */}
       <ToastContainer />

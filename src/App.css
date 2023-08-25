@@ -30,6 +30,7 @@ main {
   font-size: calc(10px + 2vmin);
   color: var(--text-color);
   width: 100%;
+  flex: 1;
 }
 
 header {
@@ -101,11 +102,30 @@ form {
 }
 
 section {
+  flex-grow: inherit;
+  flex-direction: column;
+  align-items: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
 }
 
 #message-list {
@@ -114,6 +134,17 @@ section {
   align-items: center;
   justify-content: center;
   width: 90%;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+  background-color: var(--header-bg-color);
+  border-radius: 1rem;
 }
 
 .message {
@@ -153,7 +184,6 @@ section {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
   border-radius: 10px;
   background-color: var(--message-bg-color-me);
   color: var(--text-color);
@@ -164,25 +194,30 @@ section {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  padding: 0px 0px 0px 4px;
   width: 80%;
   color: var(--text-color);
 }
 
 .message-right {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 20%;
-  margin: 1rem;
-  border-radius: 1.5rem;
-  background-color: var(--message-bg-color-other);
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-left: auto;
+  width: 110px;
+  height: 50px;
   color: var(--text-color);
 }
 
 .message-time {
   font-size: 0.7rem;
   width: 100px;
+  margin: 0px 5px 5px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 /* Tooltip container */
@@ -224,9 +259,9 @@ button {
 }
 
 .message-text {
-  font-size: 1rem;
+  font-size: 0.9rem;
   border-radius: 0.5rem;
-  padding: 0 5px;
+  padding: 5px 5px;
   width: 100%;
 }
 
@@ -239,12 +274,20 @@ button {
   padding: 0 5px;
 }
 
-.message-reactions{ 
+.message-reactions {  
   display: flex;
   font-size: 0.9rem;
-  position: relative;
-  top:45px;
-  z-index: 1;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.message-reactions-me {
+  display: flex;
+  font-size: 0.9rem;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .message-reaction-options {
