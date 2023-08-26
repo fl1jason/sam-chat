@@ -3,10 +3,15 @@ import {
   faPaperPlane,
   faBars,
   faFaceSmile,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const IconSend = () => {
   return <FontAwesomeIcon icon={faPaperPlane} />;
+};
+
+export const IconPlus = () => {
+  return <FontAwesomeIcon icon={faPlus} />;
 };
 
 export const IconMenu = () => {

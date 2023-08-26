@@ -44,7 +44,7 @@ export const Login = () => {
         <h1>Login</h1>
         <div className="login-button" onClick={signInWithGithub}>
           <img
-            src={loginGoogle}
+            src={loginGitHubn}
             className="login-img"
             alt="login with google"
           />
@@ -52,7 +52,7 @@ export const Login = () => {
         </div>
         <div className="login-button" onClick={signInWithGoogle}>
           <img
-            src={loginGitHub}
+            src={loginGoogle}
             className="login-img"
             alt="login with github"
           />

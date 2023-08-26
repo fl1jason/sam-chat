@@ -9,6 +9,8 @@ import { IconReactions } from "../icons/icons";
 
 import { getUserColor } from "../util/user";
 
+import reactionTypes from "../data/reactions";
+
 const MessageItem = (props) => {
   const { id, from, message, time_stamp, reactions } = props.message;
 
@@ -72,11 +74,11 @@ const MessageItem = (props) => {
           }
           onMouseLeave={() => setShowReactions(false)}
         >
-          <button onClick={() => handleReaction("💜")}>💜</button>
-          <button onClick={() => handleReaction("🐈")}>🐈</button>
-          <button onClick={() => handleReaction("🍺")}>🍺</button>
-          <button onClick={() => handleReaction("💩")}>💩</button>
-          <button onClick={() => handleReaction("😴")}>😴</button>
+          {reactionTypes.map((type, index) => (
+            <button id={index} onClick={() => handleReaction(type)}>
+              {type}
+            </button>
+          ))}
         </div>
       </div>
       <div
