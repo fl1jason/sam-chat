@@ -1,5 +1,7 @@
 import React from "react";
 
+import { getUserColor } from "../util/user";
+
 const Avatar = (userName) => {
   // if the UserName is two words, get the first letter of each word
   // otherwise, get the first two letters of the UserName
@@ -12,7 +14,16 @@ const Avatar = (userName) => {
     }
   };
 
-  return <div className="avatar">{getInitials(userName)}</div>;
+  const userInitials = getInitials(userName);
+  const userColor = getUserColor(userName.userName);
+
+  console.log(userName);
+
+  return (
+    <div className="avatar" style={{ backgroundColor: userColor }}>
+      {userInitials}
+    </div>
+  );
 };
 
 export default Avatar;

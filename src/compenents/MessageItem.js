@@ -47,7 +47,7 @@ const MessageItem = (props) => {
       >
         <div className={`message${user.displayName === from ? "-me" : ""}`}>
           <div className="message-left">
-            {user.displayName != from && (
+            {user.displayName !== from && (
               <div className="message-from" style={{ color: userColor }}>
                 {from}
               </div>

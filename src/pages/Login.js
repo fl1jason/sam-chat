@@ -4,7 +4,10 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { useState } from "react";
+
+// import login images from the assets folder
+import loginGitHub from "../assets/github.png";
+import loginGoogle from "../assets/google.png";
 
 export const Login = () => {
   const signInWithEmail = async () => {
@@ -36,10 +39,26 @@ export const Login = () => {
     }
   };
   return (
-    <div className="login-box">
-      <button onClick={signInWithGithub}> Signin with GitHub</button>
-      <button onClick={signInWithGoogle}> Signin with Google</button>
-      <button onClick={logOut}> logOut</button>
+    <div className="login-container">
+      <div id="login-box">
+        <h1>Login</h1>
+        <div className="login-button" onClick={signInWithGithub}>
+          <img
+            src={loginGoogle}
+            className="login-img"
+            alt="login with google"
+          />
+          <button>Signin with GitHub</button>
+        </div>
+        <div className="login-button" onClick={signInWithGoogle}>
+          <img
+            src={loginGitHub}
+            className="login-img"
+            alt="login with github"
+          />
+          <button>Signin with Google</button>
+        </div>
+      </div>
     </div>
   );
 };
