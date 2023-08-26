@@ -4,7 +4,12 @@ import {
   faBars,
   faFaceSmile,
   faPlus,
+  faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+
+export const IconLogOut = () => {
+  return <FontAwesomeIcon icon={faRightFromBracket} />;
+};
 
 export const IconSend = () => {
   return <FontAwesomeIcon icon={faPaperPlane} />;

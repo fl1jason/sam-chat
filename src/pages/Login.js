@@ -1,22 +1,12 @@
 import { auth, googleProvider, githubProvider } from "../config/firestore";
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 
 // import login images from the assets folder
 import loginGitHub from "../assets/github.png";
 import loginGoogle from "../assets/google.png";
+import logo from "../assets/logo.png";
 
 export const Login = () => {
-  const signInWithEmail = async () => {
-    try {
-      //await createUserWithEmailAndPassword(auth, email, password);
-    } catch (err) {
-      console.error(err);
-    }
-  };
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
@@ -31,20 +21,15 @@ export const Login = () => {
       console.error(err);
     }
   };
-  const logOut = async () => {
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+
   return (
     <div className="login-container">
       <div id="login-box">
-        <h1>Login</h1>
+        <img src={logo} className="login-logo" alt="Sammon Chat" />
+        <h1>Sammon Chat</h1>
         <div className="login-button" onClick={signInWithGithub}>
           <img
-            src={loginGitHubn}
+            src={loginGitHub}
             className="login-img"
             alt="login with google"
           />

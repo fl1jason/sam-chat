@@ -103,40 +103,42 @@ const ChatRoom = () => {
   };
 
   return (
-    <div id="message-list">
-      <MessageList onUpdate={toast} />
+    <>
+      <div id="message-list">
+        <MessageList onUpdate={toast} />
 
-      <div className="message-form">
-        <form onSubmit={onSubmitMessage}>
-          <input
-            type="text"
-            name="message"
-            className="message-input"
-            onChange={handleInputChange}
-            value={message.message}
-            placeholder="Type a message ..."
-          />
+        <div className="message-form">
+          <form onSubmit={onSubmitMessage}>
+            <input
+              type="text"
+              name="message"
+              className="message-input"
+              onChange={handleInputChange}
+              value={message.message}
+              placeholder="Type a message ..."
+            />
 
-          <button type="submit">
-            <IconSend />
-          </button>
-        </form>
+            <button type="submit">
+              <IconSend />
+            </button>
+          </form>
+        </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={2000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+        {/* Same as */}
+        <ToastContainer />
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-      {/* Same as */}
-      <ToastContainer />
-    </div>
+    </>
   );
 };
 

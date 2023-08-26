@@ -9,7 +9,7 @@ import Avatar from "../compenents/Avatar";
 
 import { IconMenu } from "../icons/icons";
 
-const Header = () => {
+const Header = ({ onMenu }) => {
   const [user] = useAuthState(auth);
 
   const logOut = async () => {
@@ -24,14 +24,14 @@ const Header = () => {
     <header>
       {user && (
         <>
-          <div className="header-name">
-            <Avatar userName={user.displayName} />
-            <div>{user.displayName}</div>
-          </div>
           <div className="header-options">
-            <a href="#" onClick={logOut}>
+            <a href="#" onClick={() => onMenu(true)}>
               <IconMenu />
             </a>
+          </div>
+          <div className="header-name">
+            <div>{user.displayName}</div>
+            <Avatar userName={user.displayName} />
           </div>
         </>
       )}
