@@ -104,9 +104,10 @@ const ChatRoom = () => {
 
   return (
     <>
-      <div id="message-list">
-        <MessageList onUpdate={toast} />
-
+      <div id="message-list-container">
+        <div id="message-list">
+          <MessageList onUpdate={toast} />
+        </div>
         <div className="message-form">
           <form onSubmit={onSubmitMessage}>
             <input

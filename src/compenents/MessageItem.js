@@ -88,7 +88,13 @@ const MessageItem = (props) => {
           reactions.map((reaction, index) => (
             <span key={index} className="tooltip">
               {reaction.type}
-              <span className="tooltiptext">{reaction.user}</span>
+              <span
+                className={`tooltiptext${
+                  user.displayName === from ? "-me" : ""
+                }`}
+              >
+                {reaction.user}
+              </span>
             </span>
           ))}
       </div>
