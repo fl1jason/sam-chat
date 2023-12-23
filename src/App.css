@@ -206,6 +206,8 @@ section {
 
 #message-list-container {
   height: 90vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 #message-list {
@@ -215,7 +217,7 @@ section {
   padding: 0 3rem;
   margin: auto;
   overflow-y: scroll;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 190px);
 }
 
 .login-container {
@@ -478,4 +480,24 @@ button {
       justify-content: center;
       width: 100%;
     }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #454444;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
