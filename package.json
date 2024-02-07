@@ -25,8 +25,8 @@
   },
   "scripts": {
     "dev": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
-    "start": "node --max_old_space_size=2560 node_modules/.bin/react-scripts react-scripts start",
-    "build": "node --max_old_space_size=2560 node_modules/.bin/react-scripts react-scripts build",
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && node --max_old_space_size=2560 node_modules/.bin/react-scripts && react-scripts start",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && node --max_old_space_size=2560 node_modules/.bin/react-scripts && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
